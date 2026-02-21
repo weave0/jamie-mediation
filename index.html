@@ -11,6 +11,13 @@
     <meta property="og:description" content="MN Rule 114 certified mediator specializing in child custody, divorce, and family law matters. Schedule your consultation today.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mediation.globaldeets.com">
+    <meta property="og:image" content="https://mediation.globaldeets.com/assets/og/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jamie Rigling - Family Law Mediation & ADR Services">
+    <meta name="twitter:description" content="MN Rule 114 certified mediator specializing in child custody, divorce, and family law matters.">
+    <meta name="twitter:image" content="https://mediation.globaldeets.com/assets/og/og-image.png">
     <link rel="canonical" href="https://mediation.globaldeets.com">
     <title>Jamie Rigling - Family Law Mediation & ADR Services</title>
 
@@ -20,6 +27,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- Cache bust: 2026-02-20-21:25 -->
@@ -95,9 +103,18 @@
             right: 0;
             z-index: 50;
             background: rgba(13, 13, 13, 0.9);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             transition: transform 0.3s ease;
+        }
+
+        .nav.scroll-down {
+            transform: translateY(-100%);
+        }
+
+        .nav.scroll-up {
+            transform: translateY(0);
         }
 
         .nav-container {
@@ -141,6 +158,10 @@
             color: var(--accent);
         }
 
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
         /* ============================================
            Hero Section
            ============================================ */
@@ -153,6 +174,17 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background:
+                radial-gradient(600px 400px at 25% 30%, rgba(212, 165, 116, 0.18) 0%, rgba(13, 13, 13, 0) 60%),
+                radial-gradient(700px 500px at 75% 65%, rgba(245, 245, 245, 0.10) 0%, rgba(13, 13, 13, 0) 55%);
+            transform: translateZ(0);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -380,6 +412,42 @@
             margin-top: var(--spacing-lg);
         }
 
+        .booking-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .booking-note {
+            color: var(--text-muted);
+        }
+
+        .booking-note + .booking-note {
+            margin-top: 1.5rem;
+        }
+
+        .booking-note--spaced {
+            margin-bottom: 2rem;
+        }
+
+        .booking-link {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .booking-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .contact-subtle {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            color: var(--text-muted);
+        }
+
+        .footer-subtitle {
+            margin-top: 0.5rem;
+        }
+
         .calendly-inline-widget {
             min-width: 320px;
             height: 700px;
@@ -589,16 +657,15 @@
             </p>
 
             <div class="booking-container">
-                <div class="calendly-inline-widget"
-                    data-url="https://calendly.com/your-calendly-username/consultation"
-                    style="text-align: center; padding: 60px 20px;">
-                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                 <div class="calendly-inline-widget booking-placeholder" 
+                     data-url="https://calendly.com/your-calendly-username/consultation">
+                    <p class="booking-note booking-note--spaced">
                         📅 <strong>Calendly Integration Required</strong>
                     </p>
-                    <p style="color: var(--text-muted); line-height: 1.6;">
-                        To enable online booking, please create a <a href="https://calendly.com" target="_blank" rel="noopener" style="color: var(--accent);">Calendly account</a> and replace "your-calendly-username" above with your actual Calendly username.
+                    <p class="booking-note">
+                        To enable online booking, please create a <a class="booking-link" href="https://calendly.com" target="_blank" rel="noopener">Calendly account</a> and replace "your-calendly-username" above with your actual Calendly username.
                     </p>
-                    <p style="color: var(--text-muted); margin-top: 1.5rem;">
+                    <p class="booking-note">
                         In the meantime, please use the contact information below to schedule your consultation.
                     </p>
                 </div>
@@ -630,7 +697,7 @@
                     <div class="contact-icon">📍</div>
                     <h3>Location</h3>
                     <p>Maple Grove, MN</p>
-                    <p style="font-size: 0.875rem; margin-top: 0.25rem; color: var(--text-muted);">Serving the Twin Cities metro area</p>
+                    <p class="contact-subtle">Serving the Twin Cities metro area</p>
                 </div>
             </div>
         </section>
@@ -639,7 +706,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Jamie Rigling. All rights reserved.</p>
-        <p style="margin-top: 0.5rem;">Minnesota Rule 114 Qualified Neutral | Licensed Family Law Mediator</p>
+        <p class="footer-subtitle">Minnesota Rule 114 Qualified Neutral | Licensed Family Law Mediator</p>
     </footer>
 
     <!-- Calendly Embed Script -->
