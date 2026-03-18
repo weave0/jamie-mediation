@@ -16,11 +16,9 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Publish to Cloudflare Pages
-              uses: cloudflare/pages-action@v1
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/wrangler-action@v3
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  projectName: jamie-mediation
-                  directory: .
-                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+                  command: pages deploy . --project-name minnesotapeace --branch main
