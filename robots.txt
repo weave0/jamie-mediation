@@ -1,0 +1,17 @@
+# robots.txt for minnesotapeace.com
+# Allow all bots full access
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://minnesotapeace.com/sitemap.xml
+
+# Disallow common directories (if they exist in the future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl delay (optional - helps with server load)
+# Crawl-delay: 1

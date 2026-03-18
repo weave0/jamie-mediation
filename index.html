@@ -415,11 +415,16 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            background-image: url('/assets/images/hero-bg.png');
+            background-image: url('/assets/images/hero-bg.webp');
             background-size: cover;
             background-position: center;
             opacity: 0.11;
             transform: translateZ(0);
+        }
+
+        /* PNG fallback for browsers without WebP support */
+        .no-webp .hero-bg {
+            background-image: url('/assets/images/hero-bg.png');
         }
 
         .hero-glow {
@@ -1292,13 +1297,16 @@
             <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; margin-top: 3rem;">
                 <!-- Profile Photo -->
                 <div class="about-photo" style="position: relative;">
-                    <img src="/assets/images/Jamie Profile Square.png"
-                        alt="Jamie Rigling, LICSW – Licensed Clinical Social Worker and Minnesota Rule 114 Qualified Mediator"
-                        width="400"
-                        height="400"
-                        loading="lazy"
-                        decoding="async"
-                        style="width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                    <picture>
+                        <source srcset="/assets/images/Jamie Profile Square.webp" type="image/webp">
+                        <img src="/assets/images/Jamie Profile Square.png"
+                            alt="Jamie Rigling, LICSW – Licensed Clinical Social Worker and Minnesota Rule 114 Qualified Mediator"
+                            width="400"
+                            height="400"
+                            loading="lazy"
+                            decoding="async"
+                            style="width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                    </picture>
                 </div>
 
                 <!-- About Text -->
@@ -1375,10 +1383,13 @@
             </div>
 
             <figure class="r" style="border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border);">
-                <img src="/assets/images/process.png"
-                    alt="Visual overview of the three-step mediation consultation process"
-                    loading="lazy" decoding="async"
-                    style="width:100%; display:block;">
+                <picture>
+                    <source srcset="/assets/images/process.webp" type="image/webp">
+                    <img src="/assets/images/process.png"
+                        alt="Visual overview of the three-step mediation consultation process"
+                        loading="lazy" decoding="async"
+                        style="width:100%; display:block;">
+                </picture>
             </figure>
         </section>
 
@@ -1491,6 +1502,17 @@
     <script>
         (function () {
             'use strict';
+
+            /* WebP detection for CSS fallback */
+            (function checkWebP() {
+                var webP = new Image();
+                webP.onload = webP.onerror = function () {
+                    if (webP.height !== 2) {
+                        document.documentElement.classList.add('no-webp');
+                    }
+                };
+                webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+            })();
 
             /* Smooth scroll */
             document.querySelectorAll('a[href^="#"]').forEach(function (a) {
