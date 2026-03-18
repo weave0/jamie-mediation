@@ -47,7 +47,7 @@
           "name": "Jamie Rigling Mediation",
           "alternateName": "Minnesota Peace",
           "url": "https://minnesotapeace.com",
-          "logo": "https://minnesotapeace.com/assets/logos/wordmark.png",
+          "logo": "https://minnesotapeace.com/assets/logos/No background.png",
           "image": "https://minnesotapeace.com/assets/images/Jamie Profile Square.png",
           "description": "Clinically informed mediation and conflict resolution services for Minnesota couples and families. Specializing in conscious separation, relationship repair, co-parenting mediation, and trauma-informed conflict coaching.",
           "priceRange": "$$",
@@ -481,10 +481,28 @@
             box-shadow: 0 0 5px var(--accent);
         }
 
-        .hero-wordmark {
-            width: min(460px, 82vw);
-            margin: 0 auto 1.75rem;
-            filter: brightness(1.05);
+        .hero-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-headline em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-eyebrow-rule {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            border: none;
+            margin: 0 auto 2rem;
+            opacity: 0.7;
         }
 
         .hero-subtitle {
@@ -1081,14 +1099,12 @@
                     Clinically Informed Mediation
                 </div>
 
-                <picture>
-                    <source srcset="/assets/Helping Families Find Resolution Without Court.webp" type="image/webp">
-                    <img class="hero-wordmark"
-                        src="/assets/Helping Families Find Resolution Without Court.png"
-                        alt="Helping Families Find Resolution Without Court"
-                        width="480" height="auto"
-                        loading="eager" decoding="async">
-                </picture>
+                <h1 class="hero-headline">
+                    Helping Families Find<br>
+                    <em>Resolution Without Court</em>
+                </h1>
+
+                <hr class="hero-eyebrow-rule" aria-hidden="true">
 
                 <p class="hero-subtitle">
                     When your relationship is at a breaking point, it can be hard to know what comes next.
@@ -1482,11 +1498,14 @@
 
     <!-- ── FOOTER ────────────────────────────────────────── -->
     <footer>
-        <img class="footer-wm"
-            src="/assets/logos/wordmark.png"
-            alt="Jamie Rigling"
-            width="240" height="60"
-            loading="lazy" decoding="async">
+        <picture>
+            <source srcset="/assets/logos/No background.webp" type="image/webp">
+            <img class="footer-wm"
+                src="/assets/logos/No background.png"
+                alt="Jamie Rigling Mediation – Minnesota Peace"
+                width="200" height="76"
+                loading="lazy" decoding="async">
+        </picture>
         <p class="footer-text">
             &copy; 2026 Jamie Rigling &nbsp;&middot;&nbsp;
             <span class="footer-accent">Clinically Informed Mediation</span>
